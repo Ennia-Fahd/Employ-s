@@ -1,0 +1,25 @@
+#include <iostream>
+#include "Responsable.h"
+#include "Commercial.h"
+#include "Personnel.h"
+int main()
+{
+    Employe* E1 = new Employe("emp1", "emp1", 20);
+    Employe* E4 = new Employe("emp4", "emp4", 25);
+
+    Responsable* Chef2 = new Responsable("chef2", "chef2", 35, "chef2");
+    Personnel* ceo = new Personnel("Ceo", "Ceo", 40, "Ceo");
+    Responsable* chef1 = new Responsable("chef1", "chef1", 30, "chef1");
+   
+    Chef2->add_subor(*E4);
+    chef1->add_subor(*Chef2);
+    ceo->add_subor(*chef1);
+    ceo->add_subor(*E1);
+   
+    ceo->Affichage();
+    std::cout << ceo->verser_salaire();
+
+
+
+    
+}
